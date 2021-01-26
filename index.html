@@ -12,7 +12,7 @@
    
    
   
-<section  class="login-area">
+<section  id="login-area">
     <!-- heading line -->
     <h1 class="heading text-center">Welcome to Royal-BD-Bank</h1>
 
@@ -24,12 +24,19 @@
                 <br>
                     <input class="form-control" type="password" placeholder="Password">
                 <br>
-                    <button id="login" class="btn btn-success">Enter</button>
+                    <button id="login" class="btn btn-success mb-2">Enter</button>
+                
          </article>
 </section>
 
 <script>
-  document.getElementById('login')
+    const loginBtn =  document.getElementById("login");
+    loginBtn.addEventListener('click', function(){
+        const loginArea = document.getElementById("login-area");
+        loginArea.style.display="none";
+
+    });
+ 
 </script>
 </body>
 </html>
