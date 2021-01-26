@@ -29,13 +29,106 @@
          </article>
 </section>
 
+ <!-- working on transaction area -->
+<section id="transaction">
+    <article>
+        <h2 class="text-center">Your Dashboard</h2>
+    </article>
+     <!-- working on balance -->
+    <article class="row mt-5">
+            <div class="col-md-4 ">
+                <div class="deposit status">
+                    <h5>Deposit</h5>
+                    <h2>$<span id="CurrentDeposit">00</span> </h2>
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <div class="withdraw status">
+                    <h5>Withdraw</h5>
+                    <h2>$00</h2>
+                </div>
+                
+            </div>
+            <div class="col-md-4 ">
+                <div class="balance status">
+                    <h5>Balance</h5>
+                    <h2>$<span id="currentCash">1200</span></h2>
+                </div>
+                
+            </div>
+    </article>
+            
+
+            <article class="row mt-5">
+                <div class="col-md-6">
+                    <div class="submit-area">
+                            <h4>Deposit</h4>
+                            <br>
+                        <input id="depositAmount" class="form-control" type="text" placeholder="$ Amount you want to deposit">
+                        <br>
+                        <button id="moneyin" class="btn btn-success">Deposit</button>
+                        
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="submit-area">
+                            <h4>Withdraw</h4>
+                            <br>
+                        <input class="form-control" type="text" placeholder="$ Amount you want to withdraw">
+                        <br>
+                        <button id="moneyout" class="btn btn-success">Deposit</button>
+                        
+
+                    </div>
+                </div>
+
+                
+            </article>
+     
+   
+    <!-- working on dashboard -->
+
+    
+
+</section>
+
 <script>
+    //    working log in button
     const loginBtn =  document.getElementById("login");
     loginBtn.addEventListener('click', function(){
         const loginArea = document.getElementById("login-area");
         loginArea.style.display="none";
+        const transactionArea = document.getElementById("transaction");
+        transactionArea.style.display ="block"
 
     });
+
+    // working on a deposit button
+
+    const depositBtn = document.getElementById("moneyin");
+
+        depositBtn.addEventListener("click", function(){
+            const addAmount = document.getElementById("depositAmount").value;
+            const addNumber = parseFloat(addAmount);
+            
+            const currentMoney = document.getElementById("CurrentDeposit").innerText;
+            const currentMoneyNumber = parseFloat(currentMoney);
+            const totalDeposit = currentMoneyNumber + addNumber;
+
+            document.getElementById("CurrentDeposit").innerText = totalDeposit;
+           
+            updateSpan("currentCash", addNumber)
+            
+
+            document.getElementById("depositAmount").value ="";
+        })
+
+        function updateSpan(id, addNumber){
+            const currentCashNumber = document.getElementById(id).innerText;
+            const runningCash = parseFloat(currentCashNumber);
+            const totalCash = runningCash + addNumber;
+            document.getElementById(id).innerText = totalCash;
+        }
  
 </script>
 </body>
